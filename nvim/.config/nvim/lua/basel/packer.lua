@@ -15,7 +15,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     pattern = vim.fn.expand '$MYVIMRC',
 })
 
-
 require('packer').startup(function(use)
     -- Package manager
     use 'wbthomason/packer.nvim'
@@ -48,7 +47,7 @@ require('packer').startup(function(use)
     }
 
     use 'github/copilot.vim'
-    vim.api.nvim_set_keymap('i', '<C-/>', 'copilot#Accept("<CR>")', {expr=true, silent=true})
+    vim.api.nvim_set_keymap('i', '<C-/>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
 
     -- which key
     use {
@@ -56,15 +55,9 @@ require('packer').startup(function(use)
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
+            require("which-key").setup {}
         end
     }
-
-
 
     -- File explorer
     use {
@@ -91,8 +84,10 @@ require('packer').startup(function(use)
     use 'tpope/vim-rhubarb'
     use 'lewis6991/gitsigns.nvim'
 
-    -- use 'navarasu/onedark.nvim'
-    use 'Mofiqul/dracula.nvim'
+    -- Themes
+    use 'folke/tokyonight.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
+
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
     use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
@@ -100,7 +95,7 @@ require('packer').startup(function(use)
 
     -- Fuzzy Finder (files, lsp, etc)
     use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
--- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+    -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
 
