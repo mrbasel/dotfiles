@@ -37,3 +37,6 @@ vim.keymap.set('n', '<leader>q', ':bd<cr>')
 vim.keymap.set('n', '<leader>Q', ':bd!<cr>')
 vim.keymap.set('n', '<leader>bn', ':bn<cr>')
 vim.keymap.set('n', '<leader>bb', ':bp<cr>')
+
+-- Yank to system clipboard
+vim.keymap.set('v', '<leader>y', '"+y')
