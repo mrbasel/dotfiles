@@ -7,7 +7,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.cmd [[packadd packer.nvim]]
 end
 
--- Automatically source and re-compile packer whenever you save this init.lua
+-- Automatically source and re-compile packer whenever you save this file
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePost', {
     command = 'source <afile> | silent! LspStop | silent! LspStart | PackerCompile',
@@ -47,7 +47,7 @@ require('packer').startup(function(use)
     }
 
     use 'github/copilot.vim'
-    vim.api.nvim_set_keymap('i', '<C-/>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
+    vim.api.nvim_set_keymap('i', '<C-f>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
 
     -- which key
     use {
@@ -56,6 +56,17 @@ require('packer').startup(function(use)
             vim.o.timeout = true
             vim.o.timeoutlen = 300
             require("which-key").setup {}
+        end
+    }
+
+    -- Sessions
+    use {
+        'rmagatti/auto-session',
+        config = function()
+            require("auto-session").setup {
+                log_level = "error",
+                auto_session_suppress_dirs = { "~/", "/" },
+            }
         end
     }
 
@@ -87,6 +98,7 @@ require('packer').startup(function(use)
     -- Themes
     use 'folke/tokyonight.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
+    use 'AlexvZyl/nordic.nvim'
 
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
     use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines

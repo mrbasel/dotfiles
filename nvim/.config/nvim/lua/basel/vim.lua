@@ -24,8 +24,19 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
-vim.o.termguicolors = true
-vim.cmd [[colorscheme catppuccin-mocha]]
+-- vim.o.termguicolors = true
+vim.cmd [[colorscheme tokyonight-night]]
+-- vim.cmd [[
+-- hi Normal guibg=none ctermbg=none
+-- hi LineNr guibg=none ctermbg=none
+-- hi Folded guibg=none ctermbg=none
+-- hi NonText guibg=none ctermbg=none
+-- hi SpecialKey guibg=none ctermbg=none
+-- hi VertSplit guibg=none ctermbg=none
+-- hi SignColumn guibg=none ctermbg=none
+-- hi EndOfBuffer guibg=none ctermbg=none
+--
+-- ]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
