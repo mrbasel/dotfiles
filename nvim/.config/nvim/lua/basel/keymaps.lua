@@ -29,14 +29,28 @@ vim.keymap.set('n', '<leader>of', vim.diagnostic.open_float)
 -- Dashboard
 vim.keymap.set('n', '<leader>;', ':Startify<cr>')
 
+-- Close Neovim
+vim.keymap.set('n', '<leader>Q', ':qa<cr>')
+
+-- Set dashboard bookmarks
+vim.cmd [[
+    let g:startify_bookmarks = [
+            \ '~/.dotfiles/',
+            \ '~/.dotfiles/nvim',
+            \ ]
+]]
+
 -- Save file
 vim.keymap.set('n', '<C-s>', ':w<cr>')
 
 -- Buffer keymaps
 vim.keymap.set('n', '<leader>q', ':bd<cr>')
-vim.keymap.set('n', '<leader>Q', ':bd!<cr>')
 vim.keymap.set('n', '<leader>bn', ':bn<cr>')
 vim.keymap.set('n', '<leader>bb', ':bp<cr>')
+
+for i = 1, 9 do
+    vim.keymap.set('n', '<leader>b' .. i, ':BufferLineGoToBuffer' .. i .. '<cr>')
+end
 
 -- Yank to system clipboard
 vim.keymap.set('v', '<leader>y', '"+y')
