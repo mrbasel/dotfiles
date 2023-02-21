@@ -48,6 +48,9 @@ vim.keymap.set('n', '<leader>q', ':bd<cr>')
 vim.keymap.set('n', '<leader>bn', ':bn<cr>')
 vim.keymap.set('n', '<leader>bb', ':bp<cr>')
 
+vim.keymap.set('n', '<leader>>', ':BufferLineMoveNext<cr>');
+vim.keymap.set('n', '<leader><', ':BufferLineMovePrev<cr>');
+
 for i = 1, 9 do
     vim.keymap.set('n', '<leader>b' .. i, ':BufferLineGoToBuffer' .. i .. '<cr>')
 end

@@ -6,6 +6,9 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
 
+-- Relative line numbers
+vim.opt.relativenumber = true
+
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
@@ -24,19 +27,22 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
--- vim.o.termguicolors = true
+vim.o.termguicolors = true
+require("tokyonight").setup({
+    transparent = true,
+    styles = {
+    sidebars = "transparent",
+    floats = "transparent",
+    },
+})
+
+vim.cmd [[
+    hi lualine_a_normal guibg=none 
+    hi lualine_b_normal guibg=none 
+    hi lualine_c_normal guibg=none 
+    hi lualine_c_inactive guibg=none 
+]]
 vim.cmd [[colorscheme tokyonight-night]]
--- vim.cmd [[
--- hi Normal guibg=none ctermbg=none
--- hi LineNr guibg=none ctermbg=none
--- hi Folded guibg=none ctermbg=none
--- hi NonText guibg=none ctermbg=none
--- hi SpecialKey guibg=none ctermbg=none
--- hi VertSplit guibg=none ctermbg=none
--- hi SignColumn guibg=none ctermbg=none
--- hi EndOfBuffer guibg=none ctermbg=none
---
--- ]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'

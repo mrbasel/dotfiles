@@ -83,7 +83,7 @@ require('packer').startup(function(use)
     use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
     -- Dashboard
-    use { 'mhinz/vim-startify' }
+    -- use { 'mhinz/vim-startify' }
 
     use { -- Additional text objects via treesitter
         'nvim-treesitter/nvim-treesitter-textobjects',
