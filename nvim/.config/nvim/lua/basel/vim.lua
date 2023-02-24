@@ -28,20 +28,20 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-require("tokyonight").setup({
-    transparent = true,
-    styles = {
-    sidebars = "transparent",
-    floats = "transparent",
-    },
-})
-
-vim.cmd [[
-    hi lualine_a_normal guibg=none 
-    hi lualine_b_normal guibg=none 
-    hi lualine_c_normal guibg=none 
-    hi lualine_c_inactive guibg=none 
-]]
+-- require("tokyonight").setup({
+--     transparent = true,
+--     styles = {
+--     sidebars = "transparent",
+--     floats = "transparent",
+--     },
+-- })
+--
+-- vim.cmd [[
+--     hi lualine_a_normal guibg=none 
+--     hi lualine_b_normal guibg=none 
+--     hi lualine_c_normal guibg=none 
+--     hi lualine_c_inactive guibg=none 
+-- ]]
 vim.cmd [[colorscheme tokyonight-night]]
 
 -- Set completeopt to have a better completion experience

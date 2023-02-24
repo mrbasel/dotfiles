@@ -11,3 +11,4 @@ require("basel.plugins.comment");
 require("basel.plugins.indent-blankline");
 require("basel.plugins.nvim-tree");
 require("basel.plugins.tree-sitter");
+require("basel.plugins.copilot");

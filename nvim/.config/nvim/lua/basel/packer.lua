@@ -47,7 +47,6 @@ require('packer').startup(function(use)
     }
 
     use 'github/copilot.vim'
-    vim.api.nvim_set_keymap('i', '<C-f>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
 
     -- which key
     use {
@@ -70,6 +69,9 @@ require('packer').startup(function(use)
         end
     }
 
+    -- Highlight word under cursor
+    use {'RRethy/vim-illuminate'}
+
     -- File explorer
     use {
         'nvim-tree/nvim-tree.lua',
@@ -81,9 +83,6 @@ require('packer').startup(function(use)
 
     -- Bufferline
     use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
-
-    -- Dashboard
-    -- use { 'mhinz/vim-startify' }
 
     use { -- Additional text objects via treesitter
         'nvim-treesitter/nvim-treesitter-textobjects',
