@@ -17,6 +17,7 @@ alias t='tmux'
 alias ff='fzf'
 alias http='python3 -m http.server'
 alias copy='xclip -sel clip'
+alias btm='btm --mem_as_value -r 2000 --battery'
 
 # Git aliases
 alias gits='git status'
