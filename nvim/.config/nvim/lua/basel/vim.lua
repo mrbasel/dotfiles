@@ -28,21 +28,18 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
--- require("tokyonight").setup({
---     transparent = true,
---     styles = {
---     sidebars = "transparent",
---     floats = "transparent",
---     },
--- })
---
--- vim.cmd [[
---     hi lualine_a_normal guibg=none 
---     hi lualine_b_normal guibg=none 
---     hi lualine_c_normal guibg=none 
---     hi lualine_c_inactive guibg=none 
--- ]]
-vim.cmd [[colorscheme tokyonight-night]]
+
+local isTransparent = false
+-- Command to toggle transparency
+vim.api.nvim_create_user_command('ToggleTrans', function(_)
+    require("gruvbox").setup({
+        transparent_mode = not isTransparent,
+    })
+    vim.cmd("colorscheme gruvbox")
+    isTransparent = not isTransparent
+end, {})
+
+vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
