@@ -32,14 +32,6 @@ vim.keymap.set('n', '<leader>;', ':Startify<cr>')
 -- Close Neovim
 vim.keymap.set('n', '<leader>Q', ':qa<cr>')
 
--- Set dashboard bookmarks
-vim.cmd [[
-    let g:startify_bookmarks = [
-            \ '~/.dotfiles/',
-            \ '~/.dotfiles/nvim',
-            \ ]
-]]
-
 -- Save file
 vim.keymap.set('n', '<C-s>', ':w<cr>')
 
