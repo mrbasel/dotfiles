@@ -26,26 +26,23 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>of', vim.diagnostic.open_float)
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--- Dashboard
-vim.keymap.set('n', '<leader>;', ':Startify<cr>')
-
 -- Close Neovim
 vim.keymap.set('n', '<leader>Q', ':qa<cr>')
 
 -- Save file
-vim.keymap.set('n', '<C-s>', ':w<cr>')
+vim.keymap.set({'n', 'v'}, '<C-s>', ':w<cr>')
 
 -- Buffer keymaps
 vim.keymap.set('n', '<leader>q', ':bd<cr>')
 vim.keymap.set('n', '<leader>bn', ':bn<cr>')
 vim.keymap.set('n', '<leader>bb', ':bp<cr>')
 
-vim.keymap.set('n', '<leader>>', ':BufferLineMoveNext<cr>');
-vim.keymap.set('n', '<leader><', ':BufferLineMovePrev<cr>');
-
 for i = 1, 9 do
     vim.keymap.set('n', '<leader>b' .. i, ':BufferLineGoToBuffer' .. i .. '<cr>')
 end
+
+vim.keymap.set('n', '<leader>bcl', ':BufferLineCloseLeft<cr>')
+vim.keymap.set('n', '<leader>bcr', ':BufferLineCloseRight<cr>')
 
 -- Yank to system clipboard
 vim.keymap.set('v', '<leader>y', '"+y')
