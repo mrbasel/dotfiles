@@ -1,6 +1,6 @@
+require("basel.packer");
 require("basel.vim");
 require("basel.keymaps");
-require("basel.packer");
 
 -- require("basel.lsp");
 require("basel.plugins.coc");
