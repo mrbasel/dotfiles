@@ -27,8 +27,7 @@ alias gitc='git commit'
 alias gitp='git push'
 
 # Fzf aliases
-alias sd='cd (fd --type directory | fzf)' # search directories
-alias sf='cd (fd | fzf)' # search files and directories
+alias sd='cd (find ~/ -type d | fzf)' # search directories
 alias sh='fish (history | fzf)' # search history
 
 
