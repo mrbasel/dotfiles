@@ -5,5 +5,6 @@ if nvimtree then
 end
 
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {})
+vim.keymap.set('n', '<leader>ff', ':NvimTreeFindFile<CR>', {})
 
 
