@@ -1,0 +1,10 @@
+#!/bin/bash
+# Fuzzy find directories and open one in a tmux session
+
+dir=$(find ~/ -type d | fzf )
+
+if [[ $dir ]]; then
+    cd $dir
+    baseName=$(basename $dir)
+    tmux new -A -s $baseName
+fi
