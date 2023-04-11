@@ -22,9 +22,11 @@ bind -M insert \cf accept-autosuggestion
 
 # Aliases
 alias t='tmux'
+alias ta='tmux attach'
 alias ff='fzf'
 alias http='python3 -m http.server'
 alias copy='xclip -sel clip'
+alias lg='lazygit'
 alias btm='btm --mem_as_value -r 2000 --battery'
 
 # Git aliases
@@ -42,7 +44,7 @@ alias sh='fish (history | fzf)' # search history
 # Navigation aliases
 alias home='cd ~'
 alias back='cd ..'
-alias dots='cd ~/.dotfiles'
+alias dots='cd ~/dotfiles'
 alias dev='cd ~/dev'
 alias downloads='cd ~/Downloads'
 alias docs='cd ~/Documents'
