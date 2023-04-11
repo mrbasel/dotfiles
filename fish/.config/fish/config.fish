@@ -3,6 +3,14 @@
 # Enable vi key bindings
 fish_vi_key_bindings
 
+# keyboard bindings
+set fuzzymux_cmd 'bash ~/dotfiles/scripts/fuzzymux'
+bind \cT $fuzzymux_cmd
+bind -M insert \cT $fuzzymux_cmd
+
+# Fix control-F issue: https://stackoverflow.com/questions/32037197/ctrl-f-no-longer-works-to-accept-suggestions-why
+bind -M insert \cf accept-autosuggestion
+
 # Cursor shape 
 set fish_cursor_default block
 set fish_cursor_insert line
