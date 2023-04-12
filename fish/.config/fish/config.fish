@@ -50,3 +50,11 @@ alias downloads='cd ~/Downloads'
 alias docs='cd ~/Documents'
 alias pics='cd ~/Pictures'
 alias music='cd ~/Music'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/basel/anaconda3/bin/conda
+    eval /home/basel/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
+
