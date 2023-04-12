@@ -17,9 +17,6 @@ set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 
-# Fix control-F issue: https://stackoverflow.com/questions/32037197/ctrl-f-no-longer-works-to-accept-suggestions-why
-bind -M insert \cf accept-autosuggestion
-
 # Aliases
 alias t='tmux'
 alias ta='tmux attach'
@@ -28,6 +25,7 @@ alias http='python3 -m http.server'
 alias copy='xclip -sel clip'
 alias lg='lazygit'
 alias btm='btm --mem_as_value -r 2000 --battery'
+alias nv='nvim'
 
 # Git aliases
 alias gits='git status'
