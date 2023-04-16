@@ -8,6 +8,16 @@ require('telescope').setup {
                 ['<C-d>'] = false,
             },
         },
+        vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+        },
     },
     pickers = {
         buffers = {
@@ -15,6 +25,12 @@ require('telescope').setup {
         },
         find_files = {
             hidden = true,
+        },
+        git_commits = {
+            git_command = { "git", "log", "--pretty=%h %an | %s", "--abbrev-commit", "--", "." }
+        },
+        git_bcommits = {
+            git_command = { "git", "log", "--pretty=%h %an | %s", "--abbrev-commit" }
         },
     },
     extentions = {
