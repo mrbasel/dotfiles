@@ -1,4 +1,5 @@
-
+# Default home session
+tmux new -A -s 'home'
 
 # Enable vi key bindings
 fish_vi_key_bindings
