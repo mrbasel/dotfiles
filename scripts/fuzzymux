@@ -6,5 +6,9 @@ dir=$(find ~/Desktop ~/dev ~/Documents ~/dotfiles -maxdepth 5  -type d | fzf )
 if [[ $dir ]]; then
     cd $dir
     baseName=$(basename $dir)
-    tmux new -A -s $baseName
+    if [[ -z "${TMUX}" ]]; then
+        tmux new -A -s $baseName
+    else
+        tmux new -A -s $baseName -d
+    fi
 fi

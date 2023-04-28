@@ -1,5 +1,7 @@
-# Default home session
-tmux new -A -s 'home'
+# Start tmux if not already running
+if test "$TMUX" = ""
+    tmux new -A -s 'home'
+end
 
 # Enable vi key bindings
 fish_vi_key_bindings
