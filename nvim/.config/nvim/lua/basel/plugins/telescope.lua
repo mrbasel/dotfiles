@@ -55,7 +55,13 @@ vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { d
 --   })
 -- end, { desc = '[/] Fuzzily search in current buffer]' })
 
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').git_files, { desc = '[S]earch [F]iles (GIT ONLY)' })
+vim.keymap.set('n', '<leader>sf', function ()
+    if vim.fs.find('.git')[0] == nil then
+       require('telescope.builtin').find_files()
+    else
+       require('telescope.builtin').git_files()
+    end
+end, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>saf', require('telescope.builtin').find_files, { desc = '[S]earch [A]ll [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
