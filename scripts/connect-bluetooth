@@ -1,0 +1,4 @@
+#!/bin/bash
+
+bluetoothctl trust $1
+bluetoothctl connect $1
