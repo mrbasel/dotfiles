@@ -59,3 +59,4 @@ if test -f /home/basel/anaconda3/bin/conda
 end
 # <<< conda initialize <<<
 
+set -gx EDITOR vim
