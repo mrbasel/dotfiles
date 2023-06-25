@@ -7,7 +7,7 @@ end
 fish_vi_key_bindings
 
 # keyboard bindings
-set fuzzymux_cmd 'bash ~/dotfiles/scripts/fuzzymux'
+set fuzzymux_cmd 'bash ~/dotfiles/scripts/bin/fuzzymux'
 bind \cT $fuzzymux_cmd
 bind -M insert \cT $fuzzymux_cmd
 
