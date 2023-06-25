@@ -1,0 +1,7 @@
+set editing-mode vi
+set show-mode-in-prompt on
+
+# Prefix prompt with [I] colored green 
+set vi-ins-mode-string "\e[32m[I] \e[0m"
+# Prefix prompt with [N] colored red 
+set vi-cmd-mode-string "\e[31m[N] \e[0m"
