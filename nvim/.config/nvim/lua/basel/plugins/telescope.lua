@@ -1,3 +1,5 @@
+local utils = require("basel.utils");
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -40,28 +42,20 @@ require('telescope').setup {
     }
 }
 
-
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
--- vim.keymap.set('n', '<leader>/', function()
---   -- You can pass additional configuration to telescope to change theme, layout, etc.
---   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---     winblend = 10,
---     previewer = false,
---   })
--- end, { desc = '[/] Fuzzily search in current buffer]' })
-
 vim.keymap.set('n', '<leader>sf', function ()
-    if vim.fs.find('.git')[0] == nil then
-       require('telescope.builtin').find_files()
-    else
+    if utils.is_git_repo() then
        require('telescope.builtin').git_files()
+    else
+       require('telescope.builtin').find_files()
     end
 end, { desc = '[S]earch [F]iles' })
+
 vim.keymap.set('n', '<leader>saf', require('telescope.builtin').find_files, { desc = '[S]earch [A]ll [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
