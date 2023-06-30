@@ -2,6 +2,9 @@ set editing-mode vi
 set show-mode-in-prompt on
 Control-l: clear-screen
 
+# Smaller escape time for when switching from insert mode to normal mode
+set keyseq-timeout 100
+
 # Prefix prompt with [I] colored green 
 set vi-ins-mode-string "\e[32m[I] \e[0m"
 # Prefix prompt with [N] colored red 
