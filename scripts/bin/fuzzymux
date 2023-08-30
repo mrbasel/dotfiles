@@ -1,7 +1,7 @@
 #!/bin/bash
 # Fuzzy find directories and open one in a tmux session
 
-dir=$(find ~/Desktop ~/dev ~/Documents ~/dotfiles -maxdepth 5  -type d | fzf )
+dir=$(find ~/Desktop ~/dev ~/Documents ~/dotfiles ~/obsidian-vault -maxdepth 5  -type d | fzf )
 
 if [[ $dir ]]; then
     cd $dir

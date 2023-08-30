@@ -125,6 +125,9 @@ export NVM_DIR="$HOME/.nvm"
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
+export ANDROID_HOME=/home/basel/Android/Sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+
 # vi mode
 set -o vi
 

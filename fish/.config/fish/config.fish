@@ -1,8 +1,3 @@
-# Start tmux if not already running
-if test "$TMUX" = ""
-    tmux new -A -s 'home'
-end
-
 # Enable vi key bindings
 fish_vi_key_bindings
 
@@ -51,6 +46,9 @@ alias downloads='cd ~/Downloads'
 alias docs='cd ~/Documents'
 alias pics='cd ~/Pictures'
 alias music='cd ~/Music'
+
+set -gx ANDROID_HOME /home/basel/Android/Sdk
+set -gx platform_tools /home/basel/Android/Sdk/platform-tools
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
