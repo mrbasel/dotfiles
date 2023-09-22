@@ -24,6 +24,7 @@ alias copy='xclip -sel clip'
 alias lg='lazygit'
 alias btm='btm --mem_as_value -r 2000 --battery'
 alias nv='nvim'
+alias xo='bash ~/dotfiles/scripts/bin/xopen.sh'
 
 # Git aliases
 alias gits='git status'
