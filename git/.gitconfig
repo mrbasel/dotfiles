@@ -11,3 +11,5 @@
 	editor = vim
 [init]
 	defaultBranch = main
+[push]
+	default = current
