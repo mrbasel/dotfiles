@@ -121,6 +121,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Set vim as default editor
+export EDITOR=vim
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
@@ -133,6 +136,11 @@ set -o vi
 
 # Aliases
 alias http='python3 -m http.server'
+alias ..='cd ..'
+alias t='tmux'
+alias st='/home/basel/bin/fuzzymux'
+alias xo='bash /home/basel/bin/xopen.sh'
+alias copy='xclip -sel clip'
 
 # Git aliases
 alias gits='git status'
