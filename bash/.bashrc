@@ -82,6 +82,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias ip='ip --color'
 fi
 
 # colored GCC warnings and errors
@@ -134,17 +135,12 @@ export PATH=$ANDROID_HOME/platform-tools:$PATH
 # vi mode
 set -o vi
 
-# Aliases
-alias http='python3 -m http.server'
-alias ..='cd ..'
-alias t='tmux'
-alias st='/home/basel/bin/fuzzymux'
-alias xo='bash /home/basel/bin/xopen.sh'
-alias copy='xclip -sel clip'
+# enable fzf key bindings and auto completion
+source /usr/share/doc/fzf/examples/key-bindings.bash
 
-# Git aliases
-alias gits='git status'
-alias gitd='git diff'
-alias gita='git add'
-alias gitc='git commit'
-alias gitp='git push'
+# binds
+bind '"\C-a":"/home/basel/bin/fuzzymux\n"'
+
+# Change history mode to append and write commands immediately to history
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
