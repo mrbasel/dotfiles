@@ -13,4 +13,4 @@ alias gitd='git diff'
 alias gita='git add'
 alias gitc='git commit'
 alias gitp='git push'
-
+alias bcommits='git log -p --'
