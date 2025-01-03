@@ -11,12 +11,13 @@ colorscheme torte
 
 nnoremap <space>e :Rex<CR>
 vnoremap <space>y "+y
-nnoremap <C-p> :find 
+nnoremap <C-p> :find *
 nnoremap <C-s> :w<CR>
 nnoremap <space><tab> :tabNext<CR>
 
 " Commands
 :command! CopyBuffer let @+ = expand('%:p')
+:command! Def :colorscheme default
 
 " hide Netrw banner
 let g:netrw_banner = 0
