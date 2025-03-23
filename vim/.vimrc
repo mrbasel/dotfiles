@@ -36,3 +36,6 @@ function! NetrwMapping()
   nmap <buffer> a %
   nmap <buffer> A d
 endfunction
+
+" Add Man command
+runtime! ftplugin/man.vim
