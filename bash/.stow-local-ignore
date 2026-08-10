@@ -1,0 +1,5 @@
+# Loaded by absolute path from ~/.bashrc, so these must not be symlinked into
+# $HOME. ~/.bashrc is deliberately a real copy of bashrc.stub, not a link —
+# see bashrc.stub for why.
+^/bashrc$
+^/bashrc\.stub$

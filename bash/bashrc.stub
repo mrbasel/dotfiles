@@ -1,0 +1,7 @@
+# Copy this to ~/.bashrc — copy, do NOT symlink. Installers (nvm, bun, ...)
+# append to ~/.bashrc; keeping it a real untracked file means their output
+# lands here instead of in the tracked config.
+
+[ -r ~/dotfiles/bash/bashrc ] && . ~/dotfiles/bash/bashrc
+
+# ---- machine-local; installers append below this line ----

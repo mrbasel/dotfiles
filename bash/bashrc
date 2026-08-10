@@ -1,0 +1,133 @@
+# ---------------------------------------------------------------- helpers ---
+
+# Source a file only if it exists and is readable.
+_src() { [ -r "$1" ] && . "$1"; }
+
+# Prepend a directory to PATH, only if it exists and isn't already there.
+_addpath() {
+    [ -d "$1" ] || return 0
+    case ":$PATH:" in
+        *":$1:"*) ;;
+        *) PATH="$1:$PATH" ;;
+    esac
+}
+
+# ------------------------------------------------------------ environment ---
+# This section runs for NON-interactive shells too (e.g. `ssh host 'bun -v'`),
+# so it must stay above the interactivity guard below.
+
+export EDITOR=vim
+
+_addpath "$HOME/bin"
+_addpath "$HOME/.bun/bin"
+
+if [ -d "$HOME/Android/Sdk" ]; then
+    export ANDROID_HOME="$HOME/Android/Sdk"
+    _addpath "$ANDROID_HOME/platform-tools"
+fi
+
+export BUN_INSTALL="$HOME/.bun"
+
+export NVM_DIR="$HOME/.nvm"
+_src "$NVM_DIR/nvm.sh"
+
+export PATH
+
+# ------------------------------------------------------- interactive only ---
+
+case $- in
+    *i*) ;;
+      *) return ;;
+esac
+
+# History: no duplicates, append rather than overwrite, and flush after every
+# command so concurrent shells don't clobber each other.
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
+HISTFILESIZE=2000
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+# Update LINES/COLUMNS after each command.
+shopt -s checkwinsize
+
+# Make less more friendly for non-text input files.
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# Identify the chroot we're in, if any (used in the prompt below).
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# Colored prompt where the terminal supports it.
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes ;;
+esac
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# On an xterm, set the window title to user@host:dir.
+case "$TERM" in
+    xterm*|rxvt*)
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+        ;;
+esac
+
+# Color support for ls and friends.
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    alias ip='ip --color'
+fi
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Notify when a long-running command finishes:  sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+_src ~/.bash_aliases
+
+# Programmable completion (may already be on via /etc/bash.bashrc).
+if ! shopt -oq posix; then
+    _src /usr/share/bash-completion/bash_completion || _src /etc/bash_completion
+fi
+
+set -o vi
+
+# fzf key bindings and completion. Must come after `set -o vi`, which fzf
+# inspects at load time to decide which keymap to bind into.
+if command -v fzf >/dev/null 2>&1; then
+    export FZF_CTRL_T_COMMAND="find . -name node_modules -prune -o -type f -print -o -type l -print 2>/dev/null | sed 's|^\./||'"
+    _src /usr/share/doc/fzf/examples/key-bindings.bash
+
+    # Check out a local / remote branch, picked with fzf.
+    alias gbl='git branch | fzf | sed "s/^[* ]*//" | xargs git checkout'
+    alias gbr='git branch -r | fzf | sed "s/^[^/]*\///" | xargs git checkout'
+fi
+
+# Add "--assignee @me" when running "gh pr create".
+gh() {
+    if [[ "$1" == "pr" && "$2" == "create" ]]; then
+        command gh pr create --assignee @me "${@:3}"
+    else
+        command gh "$@"
+    fi
+}
+
+[ -x "$HOME/bin/fuzzymux" ] && bind '"\C-a":"'"$HOME"'/bin/fuzzymux\n"'
+
+# --------------------------------------------------------- machine-local ----
+# Secrets and anything else that must not be committed. Loaded last so it can
+# override anything above.
+
+_src ~/.bashrc.local

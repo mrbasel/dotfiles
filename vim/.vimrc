@@ -18,6 +18,7 @@ nnoremap <space><tab> :tabNext<CR>
 " Commands
 :command! CopyBuffer let @+ = expand('%:p')
 :command! Def :colorscheme default
+:command! Date :put =strftime('%Y-%m-%d')
 
 " hide Netrw banner
 let g:netrw_banner = 0
@@ -36,6 +37,3 @@ function! NetrwMapping()
   nmap <buffer> a %
   nmap <buffer> A d
 endfunction
-
-" Add Man command
-runtime! ftplugin/man.vim
