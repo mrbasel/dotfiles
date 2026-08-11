@@ -1,7 +1,18 @@
 #!/bin/bash
 # Fuzzy find directories and open one in a tmux session
 
-dir=$(find ~/Desktop ~/dev ~/Documents ~/dotfiles ~/obsidian-vault -maxdepth 5  -type d | fzf )
+for cmd in fzf tmux; do
+    command -v "$cmd" >/dev/null 2>&1 || { echo "fuzzymux: '$cmd' is required but not installed" >&2; exit 1; }
+done
+
+topDirs=$(find ~ -mindepth 1 -maxdepth 1 -type d -not -name '.*')
+
+dir=$(find $topDirs -maxdepth 5 -type d \
+    -not -path '*/.git*' \
+    -not -path '*/node_modules*' \
+    -not -path '*/.venv*' \
+    -not -path '*/__pycache__*' \
+    | fzf)
 
 if [[ $dir ]]; then
     cd $dir
