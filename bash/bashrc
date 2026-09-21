@@ -126,6 +126,12 @@ gh() {
 
 [ -x "$HOME/bin/fuzzymux" ] && bind '"\C-a":"'"$HOME"'/bin/fuzzymux\n"'
 
+# Start an ssh-agent if the session doesn't already provide one (e.g. not
+# forwarded over ssh and no agent inherited from the desktop session).
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)" > /dev/null
+fi
+
 # --------------------------------------------------------- machine-local ----
 # Secrets and anything else that must not be committed. Loaded last so it can
 # override anything above.
