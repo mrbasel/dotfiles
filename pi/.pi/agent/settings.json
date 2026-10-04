@@ -1,0 +1,42 @@
+{
+  "lastChangelogVersion": "0.99.1",
+  "theme": "dark",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4.1-flash",
+  "enabledModels": [
+    "opencode-go/glm-5.3-flash",
+    "opencode-go/deepseek-v4-pro",
+    "opencode-go/deepseek-v4.1-flash",
+    "openai-codex/gpt-6-luna",
+    "openai-codex/gpt-6.1-sol",
+    "anthropic/claude-opus-5-5",
+    "anthropic/claude-sonnet-5-5"
+  ],
+  "hideThinkingBlock": true,
+  "defaultTools": [
+    "+codemode"
+  ],
+  "packages": [
+    "git:github.com/1broseidon/ketch@3722f58c1ff5c6b14b687ca3f925587996033536",
+    {
+      "source": "git:github.com/schpet/linear-cli@d4fe6fa7358f018fd1da0c6b96ec2b022247e898",
+      "skills": [
+        "skills/linear-cli"
+      ]
+    },
+    {
+      "source": "git:github.com/anthropics/skills@8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+      "skills": [
+        "skills/frontend-design"
+      ]
+    },
+    {
+      "source": "git:github.com/pedronauck/skills@0422940cea5d9960b3697016d1cb28c8ed02b030",
+      "skills": [
+        "skills/curated/sentry-cli"
+      ]
+    }
+  ],
+  "tuiMode": "fullscreen",
+  "deviceId": "898064e9-8f2e-4f67-a44f-b03cd11b77c3"
+}

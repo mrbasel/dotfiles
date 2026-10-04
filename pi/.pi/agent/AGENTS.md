@@ -1,0 +1,2 @@
+- Always prefer keeping replies concise.
+- When writing code, keep comments minimal and short.
