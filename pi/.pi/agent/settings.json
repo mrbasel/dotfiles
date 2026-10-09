@@ -4,13 +4,15 @@
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4.1-flash",
   "enabledModels": [
+    "claude-bridge/claude-opus-5-5",
+    "claude-bridge/claude-sonnet-5-5",
+    "claude-bridge/claude-fable-5-1",
+    "claude-bridge/claude-haiku-4-5",
     "opencode-go/glm-5.3-flash",
     "opencode-go/deepseek-v4-pro",
     "opencode-go/deepseek-v4.1-flash",
     "openai-codex/gpt-6-luna",
-    "openai-codex/gpt-6.1-sol",
-    "anthropic/claude-opus-5-5",
-    "anthropic/claude-sonnet-5-5"
+    "openai-codex/gpt-6.1-sol"
   ],
   "hideThinkingBlock": true,
   "defaultTools": [
@@ -35,7 +37,8 @@
       "skills": [
         "skills/curated/sentry-cli"
       ]
-    }
+    },
+    "npm:pi-claude-bridge"
   ],
   "tuiMode": "fullscreen",
   "deviceId": "898064e9-8f2e-4f67-a44f-b03cd11b77c3"
